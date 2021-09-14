@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parallax5</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body,
+        html {
+            height: 100%;
+            font-family: 'VT323', sans-serif;
+        }
+
+        h1 {
+            position: absolute;
+            bottom: 20px;
+            left: 10px;
+            color: white;
+            font-weight: 400;
+            font-size: 24px;
+            z-index: 1;
+        }
+
+        /* Parallax base styles
+  --------------------------------------------- */
+
+        .parallax {
+            height: 100%;
+            overflow-x: auto;
+            overflow-y: hidden;
+            -webkit-perspective: 1px;
+            perspective: 1px;
+        }
+
+        .parallax__layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+
+        .parallax__layer--base {
+            transform: translateZ(0);
+        }
+
+        .parallax__layer--back {
+            transform: translateZ(-1px) scale(2);
+        }
+
+        .parallax__layer--deep {
+            transform: translateZ(-2px) scale(3);
+        }
+
+        /* add some padding to force scrollbars */
+        .parallax__layer {
+
+            pointer-events: none;
+        }
+
+        /* Art */
+        body {
+            background: linear-gradient(#401d61 0%, #793eb3 100%);
+        }
+
+        .background {
+            position: absolute;
+            display: block;
+        }
+
+        .parallax__layer--deep {
+            padding: 0 150vw;
+        }
+
+        .parallax__layer--deep .background {
+            opacity: 0.25;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-repeat: repeat-x;
+            background-position: top center;
+            background-size: 200vh;
+            background-image: url(https://th.bing.com/th/id/R.2a7015c18f69e77deba579ab9e9172b3?rik=XYxCg3XyTkqq%2bQ&riu=http%3a%2f%2fwallup.net%2fwp-content%2fuploads%2f2016%2f01%2f190324-landscape-winter-snow-mountain-trees-sky-cabin.jpg&ehk=znDF8uog5BEjDYJ70p%2fD%2bV%2facGxN7YEqhbm%2fTv96eLY%3d&risl=&pid=ImgRaw)
+        }
+
+        .parallax__layer--back {
+            padding: 0 200vw;
+        }
+
+        .parallax__layer--back .background {
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-repeat: repeat-x;
+            background-position: bottom center;
+            background-size: 150vh;
+            background-image: url(https://www.pinclipart.com/picdir/big/540-5403667_transparent-group-of-trees-clipart.png)
+        }
+
+        .parallax__layer--base {
+            padding: 0 300vw;
+        }
+
+        .parallax__layer--base .background {
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-repeat: repeat-x;
+            background-position: bottom center;
+            background-size: 400vh;
+            background-image: url(https://clipground.com/images/clipart-of-tulips-14.png);
+
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Horizontal Parallax effect </h1>
+    <div class="parallax">
+        <div class="parallax__layer parallax__layer--deep">
+            <div class="background"></div>
+        </div>
+        <div class="parallax__layer parallax__layer--back">
+            <div class="background"></div>
+        </div>
+        <div class="parallax__layer parallax__layer--base">
+            <div class="background"></div>
+        </div>
+    </div>
+</body>
+
+</html>
